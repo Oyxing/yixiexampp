@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js">
+    </script>
+</head>
+
+<body>
+    <script>
+        window.onload = function() {
+                //登录按钮
+            $('#login_btn').click(function() {
+                var username = $('#user').val();
+                var pass = $('#pass').val();
+                $.ajax({
+                    url: '/user', //请求的文件路径
+                    data: {             //传参
+                        act: 'login',   //事件方法  login 登录
+                        user: username,     //用户名
+                        pass: pass              //密码
+                    },
+                    type: 'get',            //用get  方法请求
+                    success: function(data) {
+                        var json = eval('(' + data + ')');
+                        if (json.status == 1) {
+                            alert(json.data);   //登录成功
+                        } else {    
+                            alert(json.data);   //登录失败
+                        }
+                    },
+                    error: function(data) {
+                        alert('系统繁忙，请稍后再试！');
+                    }
+
+                })
+
+            })
+
+
+            //注册按钮
+            $('#reg_btn').click(function() {
+                var username = $('#user').val();
+                var pass = $('#pass').val();
+                $.ajax({
+                    url: '/user',
+                    data: {
+                        act: 'reg',
+                        user: username,
+                        pass: pass
+                    },
+                    type: 'get',
+                    success: function(data) {
+                        var json = eval('(' + data + ')');  //转义data
+                        if (json.status == 1) {
+                            alert(json.data);   //注册成功
+                        } else {
+                            alert(json.data);  //注册失败
+                        }
+                    },
+                    error: function(data) {
+                        alert('系统繁忙，请稍后再试！');
+                    }
+
+                })
+
+            })
+        }
+    </script>
+
+    用户：<input type="text" id="user"> 密码：
+    <input type="password" id="pass">
+    <input type="button" value="注册" id="reg_btn">
+    <input type="button" value="登录" id="login_btn">
+</body>
+
+</html>

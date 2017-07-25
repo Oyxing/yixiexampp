@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        .fontSize{
+            font-size: 50px;
+        }
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <spen class="fontSize" :class="{red:addClass}">hello world</spen>
+</div>
+<script>
+    let obj = {
+        addClass:true
+    };
+    var vm = new Vue({
+        el: "#box",
+        data:obj
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+#main p {
+    color: #00f;
+    width: 97%;
+    .redbox{
+        background-color: red;
+        color: #000;
+        width: 10px;height: 100px;
+    }
+}
+
+$width:5em;
+$height:5em;
+#main{
+    width:$width;
+    height: $height;
+    background-color: #ff0;
+}
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+// 传参
+.box {
+    @include border-radius(10px); 
+    width: 100px;
+    background-color: red;
+    height: 100px;
+}
+// 插入符号 Interpolation: #{}
+$name: foo;
+$attr: border;
+p.#{$name} {
+  #{$attr}-color:yellowgreen;
+}
+
+@mixin firefox-message($selector) {
+  body.firefox #{$selector}:before {
+    content: "Hi, Firefox users!";
+  }
+}
+
+@include firefox-message(".header");
+
+
+
+
+/*for循环*/
+@for $i from 1 through 4 {
+    .item-#{$i} {
+        width: 2em * $i;
+    }
+}
+/*判断*/
+$i: 6;
+@while $i>0 {
+    .item-#{$i} {
+        width: 2em * $i;
+    }
+    $i: $i - 2;
+}
+
+/* if语句*/
+$type: ocean;
+p {
+    @if $type==ocean {
+        color: blue;
+    }
+    @else if $type==matador {
+        color: red;
+    }
+    @else if $type==monster {
+        color: green;
+    }
+    @else {
+        color: black;
+    }
+}
+/*each*/
+
+@each $animal in puma,sea-slug,egret,
+
+salamander {
+    .#{$animal}-icon {
+        background-image: url('/images/#{$animal}.png');
+    }
+}
+/*!default 相同属性名 屏蔽后缀加!default的 */ 
+$content: "First content" !default;
+$content: "Second content?";
+$new_content: "First time reference" !default;
+#main {
+    content: $content;
+    content: $new_content;
+}
+/*函数*/
+$grid-width: 40px;
+$gutter-width: 10px;
+@function grid-width($n) {
+    @return $n * $grid-width+($n - 1) * $gutter-width;
+}
+
+#sidebar {
+    width: grid-width(5);
+}
+
+@media print {
+    .page22 {
+        width: 8in;
+        @at-root (without: media) {
+            .child2 {
+                width: 200px;
+                height: 100px;
+                background-color: red;
+            }
+        }
+    }
+}
+
+@media print {
+    .page11 {
+        width: 8in;
+        @at-root .child11 {
+            width: 200px;
+        }
+    }
+}

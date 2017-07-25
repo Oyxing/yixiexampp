@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+
+
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>243567</li>
+        <li>243567</li>
+        <li>243567</li>
+        <li>243567</li>
+    </ul>
+    <aaa></aaa>
+</div>
+
+<template id="temp">
+    <div>
+        <span>hi</span>
+    </div>
+</template>
+
+<script>
+
+    var vm = new Vue({
+        el: "#box",
+        data:{a:'bbb'},
+        components:{
+            'aaa':{
+                template:"#temp"
+            }
+        }
+    })
+</script>
+</body>
+</html>

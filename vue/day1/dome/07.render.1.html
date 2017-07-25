@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    let obj = {
+        html:'<h1>stark</h1>'
+    }
+
+    var vm = new Vue({
+        el: "#box",
+        data: obj,
+        render(createElement){
+            return createElement("ul", [
+                createElement("li",2),
+                createElement("li",3),
+                createElement("li",1)
+            ])
+        }
+    })
+</script>
+</body>
+</html>

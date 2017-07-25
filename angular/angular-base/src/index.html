@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="starkapp">
+    <!--头部-->
+    <div app-head></div>
+
+
+    hello stark
+    <md-content ng-view>
+    </md-content>
+
+    <!--把所有的lib库都打包成bundle.js-->
+    <script src="/static/js/bundle.js"></script>
+
+    <!--把所有自己写的东西打包成all.js-->
+    <script src="/static/js/all.js"></script>
+</body>
+
+</html>

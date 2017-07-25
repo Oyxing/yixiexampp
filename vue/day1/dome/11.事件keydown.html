@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+
+
+</head>
+<body>
+<div id="box">
+    <input type="text" @keydown="show" value="">
+</div>
+
+
+<script>
+
+    var vm = new Vue({
+        el: "#box",
+        data:{},
+        methods:{
+            show:function () {
+                alert('你按下了键盘')
+            }
+        }
+    })
+</script>
+</body>
+</html>

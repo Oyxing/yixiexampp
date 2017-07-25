@@ -1,0 +1,18 @@
+@stark_width :400px;
+@stark_height:400px;
+    .box{
+        width: @stark_width;
+        height: @stark_height;
+    }
+    .border{
+        border: 5px slid #400050;
+    }
+    .box1{
+        .box;
+        .border;
+        background-color: red;
+        .border_02(5px)
+    }
+    .border_02(@stark_width){
+        border:solid #ccc @stark_width;
+    }

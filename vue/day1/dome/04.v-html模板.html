@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+<div id="box" :id="stark">
+    <div v-html="html"></div>
+</div>
+</body>
+<script>
+    let obj = {
+        html: "<div>hello stark</div>",
+        stark: 520
+    }
+    var vm = new Vue({
+        el: "#box",
+        data: obj
+    })
+</script>
+
+</html>
